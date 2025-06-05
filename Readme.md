@@ -4,5 +4,5 @@ Repositório criado para registrar meus estudos em linguagens de programação. 
 
 ## Estrutura atual
 
-- `c/` — Exercícios e anotações sobre linguagem C
+- `c/` — Exercícios e projetos em C
 - `python/` — Exercícios e projetos em Python
