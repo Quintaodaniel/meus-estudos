@@ -54,12 +54,7 @@ void buscarContato(const char* nome, Pessoa* agenda, size_t tamanho) {
     }
 }
 
-void editarNome(Pessoa* agenda, size_t tamanho) {
-    char nome[50];
-    printf("Digite o nome do contato que deseja editar: ");
-    fgets(nome, sizeof(nome), stdin);
-    nome[strcspn(nome, "\n")] = '\0';
-
+void editarNome(char* nome, Pessoa* agenda, size_t tamanho) {
     for (size_t i = 0; i < tamanho; i++) {
         if (strcmp(agenda[i].nome, nome) == 0) {
             printf("Novo nome: ");
@@ -72,12 +67,8 @@ void editarNome(Pessoa* agenda, size_t tamanho) {
     printf("Contato não encontrado.\n");
 }
 
-void editarTelefone(Pessoa* agenda, size_t tamanho) {
-    char nome[50], novoTelefone[20];
-    printf("Digite o nome do contato que deseja editar: ");
-    fgets(nome, sizeof(nome), stdin);
-    nome[strcspn(nome, "\n")] = '\0';
-
+void editarTelefone(char* nome, Pessoa* agenda, size_t tamanho) {
+    char novoTelefone[20];
     for (size_t i = 0; i < tamanho; i++) {
         if (strcmp(agenda[i].nome, nome) == 0) {
             do {
@@ -150,11 +141,17 @@ int main() {
                 break;
             
             case 4:
-                editarNome(agenda, tamanho);
+                    printf("Digite o nome do contato que deseja editar: ");
+                    fgets(nome, sizeof(nome), stdin);
+                    nome[strcspn(nome, "\n")] = '\0';
+                    editarNome(nome, agenda, tamanho);
                 break;
 
             case 5:
-                editarTelefone(agenda, tamanho);
+                printf("Digite o nome do contato que deseja editar: ");
+                fgets(nome, sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = '\0';
+                editarTelefone(nome,agenda, tamanho);
                 break;
 
             case 0:
